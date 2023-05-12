@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Закрыть рекламу на DZEN.RU
-// @namespace    http://tampermonkey.net/
+// @namespace    https://github.com/VVSite
 // @version      0.8
 // @description  Автоматическое закрытие рекламы на DZEN Видео
 // @author       VVSite
