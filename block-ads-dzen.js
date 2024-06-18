@@ -5,6 +5,9 @@
 // @description  Автоматическое закрытие рекламы на DZEN Видео
 // @author       VVSite
 // @match        https://dzen.ru/video/watch/*
+// @match        https://dzen.ru/embed/*
+// @match        https://dzen.ru/video
+// @match        https://dzen.ru/thematics/video/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=dzen.ru
 // @homepageURL  https://github.com/VVSite/block-ads-dzen-video
 // @downloadURL  https://github.com/VVSite/block-ads-dzen-video/block-ads-dzen.js
