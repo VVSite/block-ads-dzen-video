@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Закрыть рекламу на DZEN.RU
-// @namespace    https://github.com/VVSite
-// @version      0.8
+// @name         Закрыть рекламу на DZEN.RU и Yandex
+// @namespace    http://tampermonkey.net/
+// @version      1.0
 // @description  Автоматическое закрытие рекламы на DZEN Видео
 // @author       VVSite
 // @match        https://dzen.ru/video/watch/*
@@ -18,7 +18,7 @@
 (function() {
     'use strict';
 
-    var elYplay = 'yaplayertag';
+    var elYplay = '.zen-ui-video-video-player';
     var svgShd = 'svg[width="24"]';
     const txtMenu1 = 'Пожаловаться';
     const txtMenu2 = 'Мне это неприятно';
@@ -34,6 +34,11 @@
             var svgX = querySelectorAllShadows(svgShd, yp);
             if (svgX[0] !== undefined && svgX[0].parentElement !== undefined)
             {
+                if (svgX[0].parentElement.tagName == 'BUTTON')
+                {
+                    return false;
+                }
+
                 svgX[0].parentElement.parentElement.style.visibility = 'hidden';
                 svgX[0].parentElement.click();
                 clearInterval(start);
@@ -41,7 +46,7 @@
 
                 setTimeout(function(){
                     var hideM = querySelectorAllShadows('div', yp, txtMenu1);
-                    if (hideM)
+                    if (hideM && hideM.parentElement !== undefined)
                     {
                         var menu1 = hideM.parentElement.parentElement.parentElement;
                         menu1.parentElement.style.visibility = 'hidden';
@@ -51,13 +56,13 @@
                 //
                 setTimeout(function(){
                     var hideM2 = querySelectorAllShadows('div', yp, txtMenu2);
-                    if (hideM2)
+                    if (hideM2 && hideM2.parentElement !== undefined)
                     {
                         var menu2 = hideM2.parentElement.parentElement.parentElement;
                         menu2.parentElement.style.visibility = 'hidden';
                         menu2.click();
-                        start = setInterval(closeCommercial, time*4);
                     }
+                    start = setInterval(closeCommercial, time*4);
                 }, time*3);
             }
         }
