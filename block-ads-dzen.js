@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Закрыть рекламу на DZEN.RU и Yandex
-// @namespace    http://tampermonkey.net/
+// @namespace    https://github.com/VVSite
 // @version      1.0
 // @description  Автоматическое закрытие рекламы на DZEN Видео
 // @author       VVSite
