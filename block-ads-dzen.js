@@ -24,6 +24,18 @@
     const txtMenu2 = 'Мне это неприятно';
     const time = 20;
 
+    //Close small banners in video
+    var start2 = setInterval(closeCommercial2, time*2);
+    function closeCommercial2()
+    {
+        var close_but = document.querySelector('button[aria-label="Закрыть баннер"]');
+        if (close_but && close_but.checkVisibility())
+        {
+            close_but.click();
+        }
+    }
+
+    // 
     var start = setInterval(closeCommercial, time*2);
 
     function closeCommercial()
